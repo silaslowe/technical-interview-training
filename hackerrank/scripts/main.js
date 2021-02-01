@@ -1,14 +1,15 @@
-const stairs = (num) => {
-  let white = num - 1
-  let pound = num - white
-  let arr = []
-  for (let i = 0; i < num; i++) {
-    arr.push(`${String.fromCharCode(32).repeat(white)}${String.fromCharCode(35).repeat(pound)}`)
-    white--
-    pound++
-    console.log(white, pound)
-  }
-  console.log(arr.join("\n"))
+let ar = [1, 3, 5, 4, 6]
+
+function miniMaxSum(arr) {
+  let min = arr
+    .sort((a, b) => a - b)
+    .slice(0, 4)
+    .reduce((a, b) => a + b, 0)
+  let max = arr
+    .sort((a, b) => b - a)
+    .slice(0, 4)
+    .reduce((a, b) => a + b, 0)
+  console.log(min, max)
 }
 
-stairs(5)
+miniMaxSum(ar)
