@@ -1,0 +1,6 @@
+result = []
+    i = nums[0]
+    while i < nums[-1]+1:
+        result.append(i)
+        i += 1
+	return result

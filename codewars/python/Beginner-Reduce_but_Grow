@@ -1,0 +1,25 @@
+Given a non-empty array of integers, return the result of multiplying the values together in order. Example:
+[1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+
+My Solution:
+
+def grow(arr):
+    result = 1
+    for num in arr:
+        result = result * num
+    return result
+
+Other Solutions:
+
+from functools import reduce
+
+def grow(arr):
+    return reduce(lambda x, y: x * y, arr)
+
+**********************
+
+from functools import reduce
+from operator import mul
+
+def grow(arr):
+    return reduce(mul, arr, 1)
