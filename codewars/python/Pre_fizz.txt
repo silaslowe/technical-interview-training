@@ -1,0 +1,21 @@
+This is the first step to understanding FizzBuzz.
+
+Your inputs: a positive integer, n, greater than or equal to one. n is provided, you have NO CONTROL over its value.
+
+Your expected output is an array of positive integers from 1 to n (inclusive).
+
+Your job is to write an algorithm that gets you from the input to the output.
+
+My Solution:
+
+def pre_fizz(n):
+    arr = []
+    x = range(1,n+1,1)
+    for n in x:
+        arr.append(n)
+    return arr 
+
+Other Solutions:
+
+def pre_fizz(n):
+    return list(range(1, n+1))
