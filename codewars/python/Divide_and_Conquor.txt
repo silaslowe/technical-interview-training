@@ -1,0 +1,29 @@
+Given a mixed array of number and string representations of integers, add up the string integers and subtract this from the total of the non-string integers.
+
+Return as a number.
+
+My Solution:
+
+def div_con(x):
+    nums = sum(it for it in x if isinstance(it, int))
+    strings = []
+    for st in x:
+        if isinstance(st, str):
+            it = int(st)
+            strings.append(it)
+    return (nums - sum(strings))
+
+Other Solutions:
+
+def div_con(lst):
+    return sum(n if isinstance(n, int) else -int(n) for n in lst)
+
+************************    
+
+def div_con(x):
+    return sum([a for a in x if isinstance(a, int)]) - sum([int(a) for a in x if not isinstance(a, int)])
+
+*************************
+
+def div_con(x):
+    return sum(-int(v) if isinstance(v, str) else v for v in x)
