@@ -1,0 +1,21 @@
+def shifter(st): 
+  letters = ["H", "I", "N", "O", "S", "X", "Z", "M", "W"]
+  str_split = st.split()
+  for letter
+  res = [ele for ele in letters if(ele in str_split)]
+  print(res)
+
+
+print(shifter("OS IS UPDATED"))
+
+ 
+
+
+  # result = []
+  # for word in str_split:
+  #   for letter in word:
+  #     if letters.includes(letter):
+  #       result.append(letter)
+  #     else:
+  #       str_split.remove(word)  
+  # print(result)

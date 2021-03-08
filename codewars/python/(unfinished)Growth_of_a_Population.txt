@@ -1,0 +1,12 @@
+def nb_year(p0, percent, aug, p):
+  counter = 0
+  if p0 >= p:
+    return counter
+  else:
+    recursive = nb_year(p0*(p0*percent)+aug, percent, aug, p)
+    counter+=1
+    print(counter)
+    return recursive
+
+
+print(nb_year(1500, 5, 100, 5000))
