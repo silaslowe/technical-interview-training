@@ -1,41 +1,98 @@
-// 99 Bottles of Beer
+// Sum of parts: Let us consider this example (array written in general format):
 
-// 7 kyu
+// ls = [0, 1, 3, 6, 10]
 
-// Complete the function that returns the lyrics for the song 99 Bottles of Beer as an array of strings: each line should be a separate element - see the example at the bottom.
+// Its following parts:
 
-// Note: in order to avoid hardcoded solutions, the size of your code is limited to 1000 characters
+// ls = [0, 1, 3, 6, 10]
+// ls = [1, 3, 6, 10]
+// ls = [3, 6, 10]
+// ls = [6, 10]
+// ls = [10]
+// ls = []
+// The corresponding sums are (put together in a list): [20, 20, 19, 16, 10, 0]
 
-// Lyrics
-// 99 bottles of beer on the wall, 99 bottles of beer.
-// Take one down and pass it around, 98 bottles of beer on the wall.
+// The function parts_sums (or its variants in other languages) will take as parameter a list ls and return a list of the sums of its parts as defined above.
 
-// 98 bottles of beer on the wall, 98 bottles of beer.
-// Take one down and pass it around, 97 bottles of beer on the wall.
+// Other Examples:
+// ls = [1, 2, 3, 4, 5, 6]
+// parts_sums(ls) -> [21, 20, 18, 15, 11, 6, 0]
 
-console.log("hi")
+// ls = [744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358]
+// parts_sums(ls) -> [10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270, 2581057, 2580168, 2579358, 0]
 
-const sing = () => {
-  let song = []
-  let counter = 99
-
-  for (let i = 0; i < 100; i++) {
-    if (counter === 1) {
-      song.push(`${counter} bottle of beer on the wall, ${counter} bottle of beer.`)
-      song.push(`Take one down and pass it around, no more bottles of beer on the wall.`)
-      console.log(counter)
-    } else if (counter === 0) {
-      song.push(`No more bottles of beer on the wall, no more bottles of beer.`)
-      song.push(`Go to the store and buy some more, 99 bottles of beer on the wall.`)
-      console.log(counter)
-    } else {
-      song.push(`${counter} bottles of beer on the wall, ${counter} bottles of beer.`)
-      song.push(`Take one down and pass it around, ${counter - 1} bottles of beer on the wall.`)
-      console.log(counter)
-    }
-    counter--
+function partsSums(ls) {
+  let result = []
+  if (ls.length < 1) {
+    return (result = [0])
   }
-  return song
-}
+  let sum = ls.reduce((a, b) => a + b)
+  result.push(sum)
+  for (let i = 0; i < ls.length; i++) {
+    sum -= ls[i]
+    result.push(sum)
+  }
 
-console.log(sing())
+  return result
+}
+// function partsSums(ls) {
+//   debugger
+//   let result = []
+//   if (ls.length < 1) {
+//     return (result = [0])
+//   }
+//   let copy = ls
+//   while (copy.length > 0) {
+//     result.push(copy.reduce((a, b) => a + b))
+//     copy.shift()
+//   }
+//   result.push(0)
+//   return result
+// }
+
+// function partsSums(ls) {
+//   let result = []
+//   debugger
+//   if (ls.length < 1) {
+//     result.push(0)
+//     return result
+//   }
+
+//   if (ls.length > 0) {
+//     let sum = ls.reduce((a, b) => a + b)
+//     result.push(sum)
+//     ls.shift()
+//     partsSums(ls)
+//   }
+// }
+
+console.log(partsSums([0, 1, 3, 6, 10]))
+
+//  Other Solutions:
+
+// function partsSums(ls) {
+//     ls.unshift(0);
+//     let sum = ls.reduce((p, c) => p + c, 0);
+//     return ls.map(v => sum = sum - v);
+// }
+
+// function partsSums(ls) {
+
+//     let res = new Array(ls.length + 1);
+//     res[ls.length] = 0;
+
+//     for (let i = ls.length - 1; i >= 0; i--)
+//       res[i] = res[i + 1] + ls[i];
+
+//     return res;
+
+//   }
+
+// function partsSums(ls) {
+//   var result = []
+//   result.push(ls.reduce((a, b) => a + b, 0))
+//   for (i = 0; i < ls.length; i++) {
+//     result.push(result[result.length - 1] - ls[i])
+//   }
+//   return result
+// }
