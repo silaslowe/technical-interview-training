@@ -1,33 +1,35 @@
-// Generate range of integers
+// Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
 
-// Implement a function named generateRange(min, max, step), which takes three arguments and generates a range of integers from min to max, with the step. The first integer is the minimum value, the second is the maximum of the range and the third is the step. (min < max)
+// Your task is to write a function maskify, which changes all but the last four characters into '#'.
 
-// Task
-// Implement a function named
+// Examples
+// maskify("4556364607935616") == "############5616"
+// maskify(     "64607935616") ==      "#######5616"
+// maskify(               "1") ==                "1"
+// maskify(                "") ==                 ""
 
-// generateRange(2, 10, 2) // should return array of [2,4,6,8,10]
-// generateRange(1, 10, 3) // should return array of [1,4,7,10]
-// Note
-// min < max
-// step > 0
-// the range does not HAVE to include max (depending on the step)
+// // "What was the name of your first pet?"
+// maskify("Skippy")                                   == "##ippy"
+// maskify("Nananananananananananananananana Batman!") == "####################################man!"
 
-function generateRange(min, max, step) {
-  const result = []
-  for (let i = min; i <= max; i += step) {
-    result.push(i)
-  }
-  return result
+// My Solution
+function maskify(cc) {
+  const len = cc.length
+  return len <= 4 ? cc : `${"#".repeat(len - 4)}${cc.slice(len - 4)}`
 }
 
-//   Other Solution
+console.log("1", maskify("4556364607935616"))
+console.log("2", maskify("1"))
+console.log("3", maskify("11111"))
 
-function generateRange(min, max, step) {
-  return Array.from({ length: 1 + (max - min) / step }, (_, i) => min + i * step)
+// Other Solutions
+
+maskify = (cc) => "#".repeat(Math.max(0, cc.length - 4)) + cc.substr(-4)
+
+function maskify(cc) {
+  return cc.slice(0, -4).replace(/./g, "#") + cc.slice(-4)
 }
 
-// Recusrsive
-
-function generateRange(min, max, step) {
-  return min > max ? [] : [min, ...generateRange(min + step, max, step)]
+function maskify(cc) {
+  return cc.slice(-4).padStart(cc.length, "#")
 }
