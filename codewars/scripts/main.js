@@ -1,20 +1,40 @@
-// There's a "3 for 2" (or "2+1" if you like) offer on mangoes. For a given quantity and price (per mango), calculate the total cost of the mangoes.
-
-// Examples
-// mango(3, 3) ==> 6    # 2 mangoes for 3 = 6; +1 mango for free
-// mango(9, 5) ==> 30   # 6 mangoes for 5 = 30; +3 mangoes for free
-
-// My Solution
-function mango(quantity, price) {
-  return Math.floor(quantity / 3) * (price * 2) + Math.floor(quantity % 3) * price
+const paul = (x) => {
+  let score = 0
+  for (let i = 0; i < x.length; i++) {
+    if (x[i][0] === "e") {
+      score += 1
+    }
+    if (x[i][0] === "k") {
+      score += 5
+    }
+    if (x[i][0] === "P") {
+      score += 10
+    }
+  }
+  if (score === 100) {
+    return "Miserable"
+  } else if (score > 70) {
+    return "Sad"
+  } else if (score > 40) {
+    return "Happy!"
+  } else {
+    return "Super Happy!"
+  }
 }
+
+console.log(paul(["life", "eating", "life"]))
+console.log(paul(["Petes kata", "Petes kata", "eating", "Petes kata", "Petes kata", "eating"]))
 
 // Other solution
 
-function mango(quantity, price) {
-  return price * (quantity - Math.floor(quantity / 3))
+paul = (x) => {
+  const score = x
+    .map((x) => ({ kata: 5, "Petes kata": 10, life: 0, eating: 1 }[x]))
+    .reduce((p, c) => p + c)
+  return score < 40 ? "Super happy!" : score < 70 ? "Happy!" : score < 100 ? "Sad!" : "Miserable!"
 }
 
-console.log(mango(9, 5))
-console.log(mango(10, 5))
-console.log(mango(1, 4))
+const paul = (x) =>
+  ((val) => (val < 40 ? `Super happy!` : val < 70 ? `Happy!` : val < 100 ? `Sad!` : `Miserable!`))(
+    x.reduce((pre, val) => pre + { kata: 5, "Petes kata": 10, life: 0, eating: 1 }[val], 0)
+  )
