@@ -1,35 +1,20 @@
-// Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
-
-// Your task is to write a function maskify, which changes all but the last four characters into '#'.
+// There's a "3 for 2" (or "2+1" if you like) offer on mangoes. For a given quantity and price (per mango), calculate the total cost of the mangoes.
 
 // Examples
-// maskify("4556364607935616") == "############5616"
-// maskify(     "64607935616") ==      "#######5616"
-// maskify(               "1") ==                "1"
-// maskify(                "") ==                 ""
-
-// // "What was the name of your first pet?"
-// maskify("Skippy")                                   == "##ippy"
-// maskify("Nananananananananananananananana Batman!") == "####################################man!"
+// mango(3, 3) ==> 6    # 2 mangoes for 3 = 6; +1 mango for free
+// mango(9, 5) ==> 30   # 6 mangoes for 5 = 30; +3 mangoes for free
 
 // My Solution
-function maskify(cc) {
-  const len = cc.length
-  return len <= 4 ? cc : `${"#".repeat(len - 4)}${cc.slice(len - 4)}`
+function mango(quantity, price) {
+  return Math.floor(quantity / 3) * (price * 2) + Math.floor(quantity % 3) * price
 }
 
-console.log("1", maskify("4556364607935616"))
-console.log("2", maskify("1"))
-console.log("3", maskify("11111"))
+// Other solution
 
-// Other Solutions
-
-maskify = (cc) => "#".repeat(Math.max(0, cc.length - 4)) + cc.substr(-4)
-
-function maskify(cc) {
-  return cc.slice(0, -4).replace(/./g, "#") + cc.slice(-4)
+function mango(quantity, price) {
+  return price * (quantity - Math.floor(quantity / 3))
 }
 
-function maskify(cc) {
-  return cc.slice(-4).padStart(cc.length, "#")
-}
+console.log(mango(9, 5))
+console.log(mango(10, 5))
+console.log(mango(1, 4))
