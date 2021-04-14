@@ -1,0 +1,12 @@
+
+Best answer
+const abbrevName = name => name.match(/\b\w/g).join('.').toUpperCase()
+
+My answer
+
+function abbrevName(name){
+let firstLetters = name.match(/\b(\w)/g)
+let lettersWithDot = firstLetters.join(".")
+let initials = lettersWithDot.toUpperCase();
+return initials
+}

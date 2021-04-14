@@ -1,0 +1,25 @@
+
+
+My attempted solution
+
+function inAscOrder(arr) {
+  for(let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] > arr[i+1]) {
+      return false; 
+    }
+  }
+  return true;
+}
+inAscOrder([3, 10, 18, 20])
+True
+inAscOrder([3, 10, 4, 18, 20])
+False
+
+
+Found solution:
+
+function inAscOrder(arr) {
+    return arr.every(function (x, i) {
+        return i === 0 || x >= arr[i - 1];
+    });
+}

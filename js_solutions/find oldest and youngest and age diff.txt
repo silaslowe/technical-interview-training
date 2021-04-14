@@ -1,0 +1,15 @@
+
+My answer:
+function differenceInAges(ages){
+let ageRange = []
+ageRange.push(Math.min(...ages), Math.max(...ages), Math.max(...ages)-Math.min(...ages))
+return ageRange
+}
+differenceInAges([82, 15, 6, 38, 35])
+
+Refactored:
+
+function differenceInAges(ages){
+return [Math.min(...ages), Math.max(...ages), Math.max(...ages)-Math.min(...ages)]
+
+}

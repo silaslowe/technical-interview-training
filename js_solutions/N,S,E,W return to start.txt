@@ -1,0 +1,66 @@
+Debug   function getSumOfDigits that takes positive integer to calculate sum of it's digits. Assume that argument is an integer.
+
+Example
+123  => 6
+223  => 7
+1337 => 15
+
+Best:
+function getSumOfDigits(integer) {
+function isValidWalk(walk) {
+  if (walk.length != 10) return false;
+  let arr = [0,0,0,0];
+  for (let i=0; i<walk.length; i++){
+    if (walk[i] == 'n') arr[0]++;
+    if (walk[i] == 's') arr[1]++;
+    if (walk[i] == 'w') arr[2]++;
+    if (walk[i] == 'e') arr[3]++;
+  }
+  if (arr[0]==arr[1]&&arr[2]==arr[3]) return true;
+  return false;
+}
+
+
+My answer:
+function isValidWalk(walk) {
+let north = []
+let south = []
+let east = []
+let west = []
+for (let dir of walk) {
+  if (dir === "n") {
+   north.push(dir)
+} else if (dir === "s") {
+  south.push(dir)
+} else if (dir === "e") {
+  east.push(dir)
+} else {
+  west.push(dir)
+}
+}
+return (north.length === south.length && east.length === west.length && walk.length === 10) 
+}
+
+Refactored:
+
+//I checked the walk.length first to not run the loop if not needed
+
+function isValidWalk(walk) {
+if (walk.length !== 10) {
+  return false
+}
+let north = []
+let south = []
+let east = []
+let west = []
+for (let dir of walk) {
+  if (dir === "n") north.push(dir)
+  if (dir === "s") south.push(dir)
+  if (dir === "e") east.push(dir)
+  if (dir === "e") west.push(dir)  
+}
+
+return (north.length === south.length && east.length === west.length) 
+}
+
+isValidWalk(['n','s','e','w','s','n','e','w','e'])

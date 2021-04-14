@@ -1,0 +1,14 @@
+Best:
+const multiplyAndFilter = (array, multiplier) => array.filter(a => typeof(a) == "number").map(a => a * multiplier);
+
+
+
+My answer:
+function multiplyAndFilter(array, x){
+let result = []
+let filt = array.toString().match(/[-]{0,1}[\d]*[.]{0,1}[\d]+/g)
+for (let i = 0; i < filt.length; i++) {
+  result.push(filt[i] * x)  
+} 
+return result
+}

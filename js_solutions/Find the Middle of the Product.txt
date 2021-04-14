@@ -1,0 +1,37 @@
+Given a string of characters, I want the function findMiddle()/find_middle() to return the middle number in the product of each digit in the string.
+
+Example: 's7d8jd9' -> 7, 8, 9 -> 7*8*9=504, thus 0 should be returned as an integer.
+
+Not all strings will contain digits. In this case and the case for any non-strings, return -1.
+
+If the product has an even number of digits, return the middle two digits
+
+Example: 1563 -> 56
+
+NOTE: Remove leading zeros if product is even and the first digit of the two is a zero. Example 2016 -> 1
+
+My Solution:
+
+function findMiddle(str){
+if (!str || typeof str !== "string") {
+return -1
+} else { 
+let numbersOnly = str.replace(/\D/g,'');
+if (!numbersOnly) {
+return -1 
+} else {
+let numProd = numbersOnly.split("").reduce((a,b) => a * b, 1).toString()  
+return Number(numProd.length % 2 === 0 ?  numProd[numProd.length/2-1]+numProd[numProd.length/2] : numProd[Math.floor(numProd.length/2)]) 
+}
+}
+}
+findMiddle("22zsf2555")
+
+Other solution:
+
+function findMiddle(str) {
+  if (typeof str != 'string' || !/\d/.test(str))
+    return -1;
+  const s = Array.from(str.replace(/\D/g, '')).reduce((x, y) => x * y).toString();
+  return +s.slice(Math.ceil(s.length / 2 - 1), Math.floor(s.length / 2 + 1));
+}

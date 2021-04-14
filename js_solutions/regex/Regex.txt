@@ -1,0 +1,26 @@
+^-?\d+(,\d+)*(\.\d+(e\d+)?)?$ Sorts numbers that are negative, have decimals, commas, exponents but do not end with a number
+
+1?[\s-]?\(?(\d{3})\)?[\s-]?\d{3}[\s-]?\d{4} captures area code and matches phone number with/without spaces, dashes or paranthesis
+
+^<(\w+) find simple tag names in HTML<a href='https://regexone.com'>Link</a> => <a
+
+ >([\w\s]*)< capture tag content in HTML <a href='https://regexone.com'>Link</a> => >Link<
+
+='([\w://.]*)' attribute values in HTML <a href='https://regexone.com'>Link</a> => ='https://regexone.com'
+
+
+(\w+)\(([\w\.]+):(\d+)\)$  extract the filename, method name and line number of line of the stack trace (they follow the form "at package.class.methodname(filename:linenumber)").
+
+
+^(\w+)://(\w+[_\.\-]?\w+\.*\w*):?(\d*)
+
+(\w+)://([\w\-\.]+)(:(\d+))? 
+
+
+
+
+
+
+https://flaviocopes.com/javascript-regular-expressions/#anchoring
+
+https://www.regular-expressions.info/characters.html

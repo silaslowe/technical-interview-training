@@ -1,0 +1,30 @@
+My answer:
+
+function multiples(m, n){
+  let multipliers = []
+  let one = 1
+  while (one < m+1) {
+   multipliers.push(one)
+   one ++
+}
+return multipliers.map(num => n * num)
+}
+multiples(3, 5)
+(3) [5, 10, 15]
+
+Best answer true/false dependent: 
+
+function countSheeps(arrayOfSheeps) {
+  return arrayOfSheeps.filter(Boolean).length;
+}
+
+Other Solutions:
+
+function multiples(m, n){
+  return Array.from(Array(m), (_v, i) => (i + 1) * n);
+}
+
+const multiples = (m, n) => Array.from({ length: m }).map((_, i) => ++i * n);
+
+multiples=(a,b)=>Array.from({length:a},(_,a)=>(a+1)*b)
+

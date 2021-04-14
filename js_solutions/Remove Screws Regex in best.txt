@@ -1,0 +1,45 @@
+Task:
+John is a worker, His job is to remove the screws from the machine.
+
+A parameters ```screws``` will be given by a string, like this: ```"---+++"```, ```"-" and "+"``` are two type of screws.
+
+John have two screwdrivers: slotted screwdriver and cross screwdriver. slotted screwdriver can remove screw "-", cross screwdriver can remove screw "+".
+
+When John began to work, he stood in the first screw, with a screwdriver in his hand(He is always holding a screwdriver that can screw out the first one), another screwdriver in his tool kit.
+
+He works from left to right, remove the screws, when the different types of screws appear, he will replace his screwdriver and continue his work.
+
+Some actions and time consuming:
+```
+remove one screw :               1 second
+move to adjacent screw position: 1 second
+replace different screwdriver:   5 seconds
+```
+Our task is to calculate the total time when he removed these screws. return a number.
+
+Specific time calculation to see the following example:
+
+My Solution:
+
+function sc(screws){
+let switchDriver = -5 
+let totalScrews = screws.length * 2 - 1; 
+for (let i = 0; i < screws.length; i++) {
+ if (screws[i] !== screws[i+1]) {
+  switchDriver += 5
+}
+}
+return switchDriver + totalScrews
+}
+sc("---+++")
+16
+
+Best Solution:
+
+function sc(screws){
+  return screws.split('').reduce((time, screw, i) => screw == screws[i+1] ? time + 2 : time + 7, 1) - 7;
+}
+
+OR
+
+function sc(a){return 2*a.length+5*a.replace(/(.)\1*/g,'$1').length-6}

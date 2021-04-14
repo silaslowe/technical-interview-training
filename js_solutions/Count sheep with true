@@ -1,0 +1,19 @@
+My answer:
+
+var array1 = [false, false];
+function countSheeps(arrayOfSheep) {
+let string = arrayOfSheep.toString()  
+let regex = /\b(true)\b/g
+if (!string.match(regex)) {
+return 0
+} else {
+ return string.match(regex).length  
+}
+}
+countSheeps(array1)
+
+Best answer true/false dependent: 
+
+function countSheeps(arrayOfSheeps) {
+  return arrayOfSheeps.filter(Boolean).length;
+}

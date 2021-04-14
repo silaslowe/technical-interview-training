@@ -1,0 +1,54 @@
+Task
+Intermediate Algorithm Scripting: Sum All Numbers in a Range
+We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers between them. The lowest number will not always come first.
+
+For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
+
+My solution
+
+function sumAll(arr) {
+  let arrOrdered = arr.sort(function(a, b){return a-b});
+  console.log(arrOrdered)
+  let newArr = []
+  let indZero = arrOrdered[0];
+  let indOne = arrOrdered[1];
+console.log(indOne)
+  while (indZero < indOne+1) {
+    newArr.push(indZero)
+    indZero++
+// console.log(indZero)
+// console.log(newArr)
+  } 
+  return newArr.reduce(function(a, b){
+return a + b;
+}, 0);
+}
+sumAll([1, 4]);
+
+Suggested:
+
+function sumAll(arr) {
+  var max = Math.max(arr[0], arr[1]);
+  var min = Math.min(arr[0], arr[1]);
+  var temp = 0;
+  for (var i = min; i <= max; i++) {
+    temp += i;
+  }
+  return temp;
+}
+
+sumAll([1, 4]);
+
+OR:
+
+function sumAll(arr) {
+  var sum = 0;
+  for (var i = Math.min(...arr); i <= Math.max(...arr); i++) {
+    sum += i;
+  }
+  return sum;
+}
+
+sumAll([1, 4]);
+
+

@@ -1,0 +1,39 @@
+Confirm the Ending
+
+function confirmEnding(str, target) {
+  if (str.substr(-target.length)=== target) {
+    return true
+  } else {
+    return false
+  }
+}
+
+confirmEnding("Bastian", "n");
+
+Refactored:
+
+function confirmEnding(str, target) {
+  return str.substr(-target.length)=== target
+}
+
+confirmEnding("Bastian", "n"); 
+
+Regex solution:
+
+function confirmEnding(str, target) {
+let re = new RegExp(target + "$", "i");
+
+  return re.test(str);
+}
+
+console.log(confirmEnding("Bastian", "n"));
+
+Slice solution:
+
+function confirmEnding(str, target) {
+return str.slice(str.length - target.length) === target;
+}
+
+confirmEnding("He has to give me a new name", "name");
+
+

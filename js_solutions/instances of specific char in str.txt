@@ -1,0 +1,19 @@
+Best answers: 
+****function strCount(str, letter){  
+  return str.split(letter).length-1
+}
+****function strCount(str, letter){  
+  return str.split('').filter(c => c == letter).length;
+}
+
+
+My answer
+function strCount(str, letter){  
+  let array = []
+  for (let i = 0; i < str.length; i++) {
+    if (letter === str[i]) {
+      array.push(str[i]) 
+  }
+  }
+  return array.length
+}

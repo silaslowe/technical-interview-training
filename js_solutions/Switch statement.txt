@@ -1,0 +1,45 @@
+
+
+
+My Solution:
+
+function getDrinkByProfession(param){
+let toCaps = param.toUpperCase()
+switch(toCaps) {
+ case "JABRONI":
+ return "Patron Tequila";
+ break;
+ case "SCHOOL COUNSELOR":
+ return "Anything with Alcohol";
+ break;
+ case "PROGRAMMER":
+ return  "Hipster Craft Beer";
+ break;
+ case "BIKE GANG MEMBER":
+ return "Moonshine";
+ break;
+ case "POLITICIAN":
+ return "Your tax dollars";
+ break;
+ case "RAPPER":
+ return "Cristal";
+ break;
+ default:
+ return "Beer";
+ break;
+}
+}
+Other Solution:
+
+
+function getDrinkByProfession(param){
+switch (param.toLowerCase()) {
+case "jabroni": return "Patron Tequila";
+case "school counselor": return	"Anything with Alcohol";
+case "programmer": return "Hipster Craft Beer";
+case "bike gang member": return	"Moonshine"; 
+case "politician": return	"Your tax dollars"; 
+case "rapper": return	"Cristal" ;
+default: return "Beer" 
+}
+}

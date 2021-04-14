@@ -1,0 +1,10 @@
+function firstNonConsecutive (arr) {
+let reversal = arr.reverse()  
+console.log(reversal)
+for(let i = 0; i < reversal.length; i++) {
+if(reversal[i] !== reversal[i+1]+1) { 
+return reversal[i]    
+}
+}
+}
+firstNonConsecutive([ -3, -1, 0, 2, 3, 4, 5, 6 ])

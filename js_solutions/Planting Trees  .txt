@@ -1,0 +1,29 @@
+
+Task
+#Task:
+There is a rectangular land and we need to plant trees on the edges of that land.
+
+I will give you three parameters:
+
+width and length, two integers > 1 that represents the land's width and length;
+
+gaps, an integer >= 0, that is the distance between two trees.
+
+Return how many trees have to be planted, if you can't achieve a symmetrical layout(see Example 3) then return 0.
+
+My Solution:
+
+function sc(width,length,gaps){
+let perimeter = ((width - 2)*2 + length*2)
+  return perimeter % (gaps + 1) === 0 ? perimeter/(gaps + 1) : 0
+}
+
+Other Solution:
+
+const sc=(w,l,g)=>(p=>p%(g+1) ? 0 : p/(g+1))(2*(w+l-2));
+
+function sc(width, length, gap) {
+  let count = 2 * (width + length - 2) / (gap + 1);
+  return count % 1 ? 0 : count;
+}
+
