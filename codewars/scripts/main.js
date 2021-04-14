@@ -1,44 +1,24 @@
-// Isograms
+// Complete the solution so that it returns a formatted string. The return value should equal "Value is VALUE" where value is a 5 digit padded number.
 
-// An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+// Example:
 
-// isIsogram("Dermatoglyphics") == true
-// isIsogram("aba") == false
-// isIsogram("moOse") == false // -- ignore letter case
+// solution(5) // should return "Value is 00005"
 
 // My Solution
 
-function isIsogram(str) {
-  if (!str) {
-    return true
+function solution(value){
+    return `Vaule is ${"0".repeat(5-value.toString().length)}${value}`
+    }
+
+
+console.log(solution(1204))
+console.log(solution(109))
+
+// Other Solution
+
+function solution(value){
+    return "Value is " + ("00000" + value).slice(-5);
   }
-  const chars = str.toLowerCase().split('')
-  return [
-    ...new Set(
-      chars.filter((c, index) => {
-        return chars.indexOf(c) !== index
-      })
-    ),
-  ].length > 0
-    ? false
-    : true
-}
-
-console.log(isIsogram('Dermatoglyphics'))
-console.log(isIsogram('Dermatoglyphicss'))
-console.log(isIsogram('Dermatoglyphicsz'))
-console.log(isIsogram(''))
-
-// Other Solutions
-
-function isIsogram(str) {
-  return !str.match(/([a-z]).*\1/i)
-}
-
-function isIsogram(str) {
-  return !/(\w).*\1/i.test(str)
-}
-
-function isIsogram(str) {
-  return !str || str.length === new Set(str.toLowerCase()).size
-}
+  
+  function solution(value){
+  const solution = value => 'Value is ' + value.toString().padStart(5, '0');
