@@ -1,0 +1,21 @@
+shorter concat [reverse longer]
+
+
+My Solution: 
+
+def shorter_reverse_longer(a,b):
+    if len(list(a)) < len(list(b)):
+        return f"{a}{b[::-1]}{a}"
+    else:
+        return f"{b}{a[::-1]}{b}"
+
+
+Other Solution:
+
+def shorter_reverse_longer(a,b):
+    short,long = sorted((b,a), key=len)
+    return short + long[::-1] + short
+
+def shorter_reverse_longer(a,b):
+  if len(a) < len(b): a, b = b, a
+  return b+a[::-1]+b
