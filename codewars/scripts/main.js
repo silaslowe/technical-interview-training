@@ -1,7 +1,9 @@
-function largestPairSum(numbers){
-    const num = numbers.sort((a,b) => b-a)
-    return num[0] + num[1]
-}
+function convert(s) {
+    let counter = 0
+    const hash = new Map()
+    const arr =  [...new Set(s.split(""))]
+    arr.map(letter => {hash.set(letter, counter)})
+  }
 
-console.log(largestPairSum([10,14,2,23,19]))
-console.log(largestPairSum([-100,-29,-24,-19,19]))
+console.log(convert("CodeWars"))
+console.log(convert("KATA"))
