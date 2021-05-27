@@ -1,3 +1,5 @@
+// String ends with?
+
 // function solution(str, ending){
 //     const end = new RegExp(`${ending}$`, 'g')
 //     return end.test(str)
@@ -14,3 +16,13 @@
 console.log(solution('abcde', 'cde'))
 console.log(solution('abcde', 'abc'))
 console.log(solution('abcde', 'e'))
+
+// Other Solutions
+
+// function solution(str, ending){
+//     return str.match(ending+"$")==ending;
+//   }
+
+//   function solution(str, ending){
+//     return str.endsWith(ending);
+//   }
