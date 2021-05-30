@@ -1,28 +1,23 @@
-// String ends with?
+// Breaking chocolate problem
 
-// function solution(str, ending){
-//     const end = new RegExp(`${ending}$`, 'g')
-//     return end.test(str)
-//   }
+// Your task is to split the chocolate bar of given dimension n x m into small squares. Each square is of size 1x1 and unbreakable. Implement a function that will return minimum number of breaks needed.
 
-  function solution(str, ending){
-    const end = ending.split("")
-    const s = str.split("")
+// For example if you are given a chocolate bar of size 2 x 1 you can split it to single squares in just one break, but for size 3 x 1 you must do two breaks.
 
-    console.log(s.slice(str.length - end.length, s.length), end)
-    return s.slice(str.length - end.length, s.length).join() == end.join()
-  }  
+// If input data is invalid you should return 0 (as in no breaks are needed if we do not have any chocolate to split). Input will always be a non-negative integer.
 
-console.log(solution('abcde', 'cde'))
-console.log(solution('abcde', 'abc'))
-console.log(solution('abcde', 'e'))
+function breakChocolate(n,m) {
+  return n*m-1 >= 0 ? n*m-1 : 0
+}
+    
 
-// Other Solutions
+// Other Soluitons 
+var breakChocolate=(x,y)=>(x*=y)&&x-1
 
-// function solution(str, ending){
-//     return str.match(ending+"$")==ending;
-//   }
+var breakChocolate = function(n, m) {
+  return (!n || !m) ? 0 : n*m-1
+};
 
-//   function solution(str, ending){
-//     return str.endsWith(ending);
-//   }
+var breakChocolate = function(n, m) {
+    return (n||1) * (m||1) - 1;
+  };   
